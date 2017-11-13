@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medikamente>
+    <medikament id="prototyp0815">
+        <name>ProTo Typ 0815</name>
+        <inhalt>
+            <menge>20</menge>
+            <einheit>Tabletten</einheit>
+        </inhalt>
+    </medikament>
+</medikamente>

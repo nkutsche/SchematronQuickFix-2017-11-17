@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medikamente>
+    <medikament id="protoa83">
+        <name>ProTo A 38</name>
+        <patent>
+            <erstellt>12.01.2000</erstellt>
+            <gueltig-bis>12.01.2020</gueltig-bis>
+        </patent>
+    </medikament>
+    <medikament id="protogentechnik">
+        <name>ProTo Gen Tec</name>
+        <patent>
+            <erstellt>12.01.1999</erstellt>
+            <gueltig-bis>11.01.2024</gueltig-bis>
+        </patent>
+    </medikament>
+    <medikament id="prototyp0815">
+        <name>ProTo Typ 0815</name>
+        <patent>
+            <erstellt>23.05.2013</erstellt>
+            <gueltig-bis>22.05.2033</gueltig-bis>
+        </patent>
+    </medikament>
+</medikamente>
