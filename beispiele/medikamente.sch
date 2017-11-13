@@ -30,7 +30,7 @@
             
             <sqf:fix id="replaceId">
                 <sqf:description>
-                    <sqf:title>Ersetze die ID</sqf:title>
+                    <sqf:title>Ersetze die ID durch "<sch:value-of select="$reqId"/>"</sqf:title>
                 </sqf:description>
                 <sqf:replace match="@id" target="id" node-type="attribute" select="$reqId"/>
             </sqf:fix>
@@ -103,7 +103,7 @@
         </sch:rule>
 
         <sch:rule context="patent/erstellt | patent/gueltig-bis">
-            <sch:assert test=". castable as xs:date" sqf:fix="de-format set-new-date">Muss ein gültiges Datum vom Typ xs:date sein.</sch:assert>
+            <sch:assert test=". castable as xs:date" sqf:fix="de-format set-new-date" sqf:default-fix="de-format">Muss ein gültiges Datum vom Typ xs:date sein.</sch:assert>
             <sch:let name="de-format" value="es:date-conversion-de(.)"/>
             
             <sch:let name="otherDate" value="../(erstellt | gueltig-bis) except ."/>
