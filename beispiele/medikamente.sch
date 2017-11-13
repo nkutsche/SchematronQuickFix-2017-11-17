@@ -108,7 +108,7 @@
             
             <sch:let name="otherDate" value="../(erstellt | gueltig-bis) except ."/>
             <sch:let name="year" value="xs:dayTimeDuration('P365D')"/>
-            <sch:let name="defDuration" value="$year * 30"/>
+            <sch:let name="defDuration" value="$year * 20"/>
             <sch:let name="default" value="
                 if ($otherDate castable as xs:date) then
                 (if (self::erstellt) then
@@ -135,6 +135,7 @@
                     </sqf:description>
                 </sqf:user-entry>
                 <sqf:replace match="text()" select="$new-date"/>
+                <sqf:add match="." select="$new-date" use-when="not(text())"/>
             </sqf:fix>
         </sch:rule>
 
