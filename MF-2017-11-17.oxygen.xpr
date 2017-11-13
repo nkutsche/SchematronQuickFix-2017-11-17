@@ -10,6 +10,21 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>beispiele/05_entities/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>beispiele/05_copy-of/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
