@@ -172,8 +172,8 @@
     <sch:pattern id="copyOfEscali">
         <sch:title>sqf:copy-of</sch:title>
 
-        <sch:rule context="nebenwirkungen/nebenwirkung[p/@typ = 'Sicherheitshinweis']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(p/@typ = 'Sicherheitshinweis')]" sqf:fix="move">Nebenwirkungen mit Sicherheitshinweis sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
             <sqf:fix id="move">
                 <sqf:description>
                     <sqf:title>Schiebe an die erste Stelle</sqf:title>
@@ -192,8 +192,8 @@
     <sch:pattern id="copyOfOxygen">
         <sch:title>sqf:copy-of mit Oxygen</sch:title>
 
-        <sch:rule context="nebenwirkungen/nebenwirkung[p/@typ = 'Sicherheitshinweis']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(p/@typ = 'Sicherheitshinweis')]" sqf:fix="move">Nebenwirkungen mit Sicherheitshinweis sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
             <sqf:fix id="move">
                 <sqf:description>
                     <sqf:title>Schiebe an die erste Stelle</sqf:title>
