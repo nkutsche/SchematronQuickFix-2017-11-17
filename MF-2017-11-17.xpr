@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="19.0">
+    <meta>
+        <filters directoryPatterns="" filePatterns="MF-2017-11-17.xpr" positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="MF-2017-11-17.xpr">
+        <folder name="Escali-junit-tests">
+            <folder path="../../../Java2/escali-main-package/escali/src/test/resources/sch/escali-ext-tests/"/>
+            <folder path="../../../Java2/escali-main-package/escali/src/test/resources/sch/gui-tests/"/>
+            <folder path="../../../Java2/escali-main-package/escali/src/test/resources/sch/schematron-tests/"/>
+            <folder path="../../../Java2/escali-main-package/escali/src/test/resources/sch/sqf-tests/"/>
+        </folder>
+        <folder path="."/>
+    </projectTree>
+</project>
