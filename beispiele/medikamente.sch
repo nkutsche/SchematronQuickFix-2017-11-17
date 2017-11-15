@@ -210,17 +210,27 @@
     
     <sch:pattern id="order">
         <sch:title>Reihenfolgen-Bug</sch:title>
-        <sch:rule context="nebenwirkung/p[medikament and gefahr]">
-            <sch:assert test="preceding-sibling::p[1]/@typ = 'Sicherheitshinweis'" sqf:fix="add_hinweis">Vor einem Absatz zu einer lebensbedrohlichen Wechselwirkung sollte immer ein Sicherheitshinweis stehen.</sch:assert>
+        <sch:rule context="anwendung/p">
+            <sch:assert test="normalize-space(.) != ''" sqf:fix="add_spaceBefore add_spaceBefore_orderCorrect">Leere Absätze dürfen nicht verwendet werden um Abstand zu erzeugen.</sch:assert>
             
-            <sqf:fix id="add_hinweis">
+            <sqf:fix id="add_spaceBefore">
                 <sqf:description>
-                    <sqf:title>Füge einen Sicherheitshinweis ein</sqf:title>
-                    <sqf:p>Fügt vor dem Absatz einen Standard-Sicherheitshinweis für Wechselwirkungen ein.</sqf:p>
-                    <sqf:p>Sollte es fehlen wird der Absatz auch mit dem Typ "Wechselwirkung" markiert.</sqf:p>
+                    <sqf:title>[FALSCH] Ersetzt den Absatz durch ein space-before-Attribut im folgenden Absatz.</sqf:title>
+                    <sqf:p>Der leere Absatz wird gelöscht.</sqf:p>
+                    <sqf:p>Der folgende Absatz erhält ein style="space-before:1em".</sqf:p>
                 </sqf:description>
-                <sqf:add position="before"><p typ="Sicherheitshinweis">Bitte lesen Sie folgenden Absatz sorgfältig. Er behandelt lebensbedroliche Wechselwirkungen:</p></sqf:add>
-                <sqf:add node-type="attribute" target="typ">Wechselwirkung</sqf:add>
+                <sqf:delete/>
+                <sqf:add match="following-sibling::p[1]" node-type="attribute" target="style" select="'space-before:1em'"/>
+            </sqf:fix>
+            
+            <sqf:fix id="add_spaceBefore_orderCorrect">
+                <sqf:description>
+                    <sqf:title>[RICHTIG] Ersetzt den Absatz durch ein space-before-Attribut im folgenden Absatz.</sqf:title>
+                    <sqf:p>Der leere Absatz wird gelöscht.</sqf:p>
+                    <sqf:p>Der folgende Absatz erhält ein style="space-before:1em".</sqf:p>
+                </sqf:description>
+                <sqf:add match="following-sibling::p[1]" node-type="attribute" target="style" select="'space-before:1em'"/>
+                <sqf:delete/>
             </sqf:fix>
         </sch:rule>
     </sch:pattern>
