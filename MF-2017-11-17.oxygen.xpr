@@ -10,7 +10,52 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>beispiele/05_microtypo/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>beispiele/02_datatype/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>beispiele/00_schematron/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>beispiele/05_copy-of/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -56,36 +101,6 @@
                             <scenarioAssociation>
                                 <field name="url">
                                     <String>beispiele/04_copy-of/medikamente.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>medikamente</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>Validation_scenario</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>beispiele/02_datatype/medikamente.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>medikamente</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>Validation_scenario</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>beispiele/05_copy-of/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
