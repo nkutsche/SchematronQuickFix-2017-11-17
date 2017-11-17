@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medikamente>
+    <medikament id="Prototyp">
+        <name>ProTo Typ 0815</name>
+        
+        <nebenwirkungen>
+            <nebenwirkung stufe="ungefaehrlich">ProTo&#xA0;Typ&#xA0;0815 kann zu leichten Koptschmerzen führen.</nebenwirkung>
+            <nebenwirkung stufe="lebensbedrohlich">ProTo&#xA0;Typ&#xA0;0815 nicht gleichzeitig mit Antibiotika einnehmen! Kann zu lebensbedrohlichem Brechreiz führen.</nebenwirkung>
+        </nebenwirkungen>
+        
+        <anwendung>
+            <anwendung>
+                <p>Nehmen Sie zweimal täglich 30 ml ProTo&#xA0;Typ&#xA0;0815 oral ein.</p>
+                <p/>
+                <p>Kinder und Jugendliche unter 12 Jahren sollten maximal 15 ml einmal täglich einnehmen.</p>
+                <p>Weitere Informationn erhalen Sie von Ihrem Arzt oder Apotheker.</p>
+            </anwendung>
+        </anwendung>
+        
+    </medikament>
+</medikamente>
