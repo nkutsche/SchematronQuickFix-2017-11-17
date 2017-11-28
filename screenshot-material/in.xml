@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="declare.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<html>
+    <head>
+        <title>Title<!-- with a comment --></title>
+    </head>
+</html>
