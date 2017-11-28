@@ -87,20 +87,7 @@
             </sqf:fix>
         </sch:rule>
 
-        <sch:rule context="inhalt/einheit">
-            <sch:assert test="normalize-space(.) = $einheiten" sqf:fix="einheit">Die ist keine bekannte Einheit. Bekannte Einheiten sind: <sch:value-of select="string-join($einheiten, ', ')"/></sch:assert>
-            <sqf:fix id="einheit">
-                <sqf:description>
-                    <sqf:title>Wähle eine bekannte einheit aus</sqf:title>
-                </sqf:description>
-                <sqf:user-entry name="einheitNeu" default="$einheiten">
-                    <sqf:description>
-                        <sqf:title>Gib die gewünschte Einheit an.</sqf:title>
-                    </sqf:description>
-                </sqf:user-entry>
-                <sqf:replace node-type="element" target="einheit" select="$einheitNeu"/>
-            </sqf:fix>
-        </sch:rule>
+        
 
         <sch:rule context="patent/erstellt | patent/gueltig-bis">
             <sch:assert test=". castable as xs:date" sqf:fix="de-format set-new-date" sqf:default-fix="de-format">Muss ein gültiges Datum vom Typ xs:date sein.</sch:assert>
@@ -127,19 +114,74 @@
             <sqf:fix id="set-new-date">
                 <sqf:description>
                     <sqf:title>Setz das Datum neu.</sqf:title>
+                    <sqf:p>Mit einem UserEntry</sqf:p>
                 </sqf:description>
                 
                 <sqf:user-entry name="new-date" type="xs:date" default="$default">
                     <sqf:description>
-                        <sqf:title>Gib ein neues datum an.</sqf:title>
+                        <sqf:title>Gib ein neues Datum an.</sqf:title>
                     </sqf:description>
                 </sqf:user-entry>
                 <sqf:replace match="text()" select="$new-date"/>
                 <sqf:add match="." select="$new-date" use-when="not(text())"/>
             </sqf:fix>
         </sch:rule>
+        
+        <sch:rule context="inhalt/einheit">
+            <sch:assert test="normalize-space(.) = $einheiten" sqf:fix="einheit">Die ist keine bekannte Einheit. Bekannte Einheiten sind: <sch:value-of select="string-join($einheiten, ', ')"/></sch:assert>
+            <sqf:fix id="einheit">
+                <sqf:description>
+                    <sqf:title>Wähle eine bekannte einheit aus</sqf:title>
+                </sqf:description>
+                <sqf:user-entry name="einheitNeu" default="$einheiten">
+                    <sqf:description>
+                        <sqf:title>Gib die gewünschte Einheit an.</sqf:title>
+                    </sqf:description>
+                </sqf:user-entry>
+                <sqf:replace node-type="element" target="einheit" select="$einheitNeu"/>
+            </sqf:fix>
+        </sch:rule>
 
     </sch:pattern>
+    
+    <sch:pattern id="copyOfOxygen">
+        <sch:title>sqf:copy-of mit Oxygen</sch:title>
+        
+        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+            <sqf:fix id="move">
+                <sqf:description>
+                    <sqf:title>Schiebe an die erste Stelle</sqf:title>
+                </sqf:description>
+                <sch:let name="current" value="."/>
+                <sqf:add match=".." position="first-child">
+                    <xsl:copy-of select="$current"/>
+                </sqf:add>
+                <sqf:delete/>
+            </sqf:fix>
+        </sch:rule>
+        
+    </sch:pattern>
+    
+    <sch:pattern id="copyOfEscali">
+        <sch:title>sqf:copy-of</sch:title>
+        
+        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+            <sqf:fix id="move">
+                <sqf:description>
+                    <sqf:title>Schiebe an die erste Stelle</sqf:title>
+                </sqf:description>
+                <sch:let name="current" value="."/>
+                <sqf:add match=".." position="first-child">
+                    <sqf:copy-of select="$current" unparsed-mode="true"/>
+                </sqf:add>
+                <sqf:delete/>
+            </sqf:fix>
+        </sch:rule>
+        
+    </sch:pattern>
+    
 
     <sch:pattern id="regexOxygen">
         <sch:title>Regex mit Oxygen</sch:title>
@@ -158,7 +200,6 @@
     <sch:pattern id="regexEscali">
         <sch:title>Regex mit Escali</sch:title>
         <sch:rule context="anwendung/p/text()" es:regex="(\d+)\s(ml|Jahren)">
-            <sch:let name="d" value="regex-group(1)"/>
             <sch:report test="true()" sqf:fix="insertNBSP">Zwischen der Zahl und einer Einheit immer ein Non-Breaking-Space (&amp;#xA0;)!</sch:report>
             <sqf:fix id="insertNBSP">
                 <sqf:description>
@@ -169,44 +210,7 @@
         </sch:rule>
     </sch:pattern>
 
-    <sch:pattern id="copyOfEscali">
-        <sch:title>sqf:copy-of</sch:title>
-
-        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
-            <sqf:fix id="move">
-                <sqf:description>
-                    <sqf:title>Schiebe an die erste Stelle</sqf:title>
-                </sqf:description>
-                <sch:let name="current" value="."/>
-                <sqf:add match=".." position="first-child">
-                    <sqf:copy-of select="$current" unparsed-mode="true"/>
-                </sqf:add>
-                <sqf:delete/>
-            </sqf:fix>
-        </sch:rule>
-
-    </sch:pattern>
-
-
-    <sch:pattern id="copyOfOxygen">
-        <sch:title>sqf:copy-of mit Oxygen</sch:title>
-
-        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
-            <sqf:fix id="move">
-                <sqf:description>
-                    <sqf:title>Schiebe an die erste Stelle</sqf:title>
-                </sqf:description>
-                <sch:let name="current" value="."/>
-                <sqf:add match=".." position="first-child">
-                    <xsl:copy-of select="$current"/>
-                </sqf:add>
-                <sqf:delete/>
-            </sqf:fix>
-        </sch:rule>
-
-    </sch:pattern>
+    
     
     <sch:pattern id="order">
         <sch:title>Reihenfolgen-Bug</sch:title>
