@@ -2,7 +2,48 @@
 <project version="19.0">
     <meta>
         <filters directoryPatterns="" filePatterns="MF-2017-11-17.xpr" positiveFilePatterns="" showHiddenFiles="false"/>
-        <options/>
+        <options>
+            <serialized version="19.0" xml:space="preserve">
+                <serializableOrderedMap>
+                    <entry>
+                        <String>editor.background-color</String>
+                        <String>240,248,255</String>
+                    </entry>
+                    <entry>
+                        <String>editor.font</String>
+                        <String>Monospaced,0,16</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.author.v12</String>
+                        <String>Serif,0,15</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.gui</String>
+                        <String>SansSerif,0,16</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.schema</String>
+                        <String>SansSerif,0,15</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.text</String>
+                        <String>SansSerif,0,16</String>
+                    </entry>
+                    <entry>
+                        <String>key.fonts.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.text.editor.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>ui.view.titles.font</String>
+                        <String>Segoe UI,0,20</String>
+                    </entry>
+                </serializableOrderedMap>
+            </serialized>
+        </options>
     </meta>
     <projectTree name="MF-2017-11-17.xpr">
         <folder name="Escali-junit-tests">

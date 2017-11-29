@@ -6,15 +6,51 @@
             <serialized version="19.0" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
+                        <String>editor.background-color</String>
+                        <String>255,255,200</String>
+                    </entry>
+                    <entry>
+                        <String>editor.font</String>
+                        <String>Consolas,0,16</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.author.v12</String>
+                        <String>Serif,0,15</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.gui</String>
+                        <String>SansSerif,0,16</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.schema</String>
+                        <String>SansSerif,0,15</String>
+                    </entry>
+                    <entry>
+                        <String>font.for.text</String>
+                        <String>SansSerif,0,16</String>
+                    </entry>
+                    <entry>
+                        <String>key.fonts.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>key.text.editor.option.pane</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
+                        <String>ui.view.titles.font</String>
+                        <String>Segoe UI,0,20</String>
+                    </entry>
+                    <entry>
                         <String>validation.scenario.associations</String>
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>presentation/declare.sch</String>
+                                    <String>beispiele/00_simple_quickfix/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
-                                        <String>No Validation</String>
+                                        <String>medikamente - 00_simple_quickfix</String>
                                     </list>
                                 </field>
                                 <field name="scenarioTypes">
@@ -25,7 +61,7 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>beispiele/05_microtypo/medikamente.xml</String>
+                                    <String>beispiele/06_process-order/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -55,66 +91,6 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>beispiele/00_schematron/medikamente.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>medikamente</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>Validation_scenario</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>beispiele/05_copy-of/medikamente.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>medikamente</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>Validation_scenario</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>beispiele/06_process-order/medikamente.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>medikamente</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>Validation_scenario</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
-                                    <String>beispiele/05_entities/medikamente.xml</String>
-                                </field>
-                                <field name="scenarioIds">
-                                    <list>
-                                        <String>medikamente</String>
-                                    </list>
-                                </field>
-                                <field name="scenarioTypes">
-                                    <list>
-                                        <String>Validation_scenario</String>
-                                    </list>
-                                </field>
-                            </scenarioAssociation>
-                            <scenarioAssociation>
-                                <field name="url">
                                     <String>beispiele/04_copy-of/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -130,7 +106,7 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>beispiele/04_entities/medikamente.xml</String>
+                                    <String>beispiele/03_enum/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -160,7 +136,67 @@
                             </scenarioAssociation>
                             <scenarioAssociation>
                                 <field name="url">
-                                    <String>beispiele/03_enum/medikamente.xml</String>
+                                    <String>beispiele/00_schematron/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>beispiele/05_microtypo/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>beispiele/05_copy-of/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>beispiele/05_entities/medikamente.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
+                                    <String>beispiele/04_entities/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
                                     <list>
@@ -276,7 +312,7 @@
                                                         <Integer>7</Integer>
                                                     </field>
                                                     <field name="uri">
-                                                        <String>${pdu}/presentation/declare.sch</String>
+                                                        <String>${pdu}/beispiele/00_simple_quickfix/medikamente.sch</String>
                                                     </field>
                                                 </validationUnitSchema>
                                             </field>
@@ -287,7 +323,7 @@
                                     <String>Validation_scenario</String>
                                 </field>
                                 <field name="name">
-                                    <String>No Validation</String>
+                                    <String>medikamente - 00_simple_quickfix</String>
                                 </field>
                             </validationScenario>
                         </validationScenario-array>
