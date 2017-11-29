@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="medikamente.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <medikamente2>
     <medikament id="protoa83">
         <name>ProTo A 38</name>
