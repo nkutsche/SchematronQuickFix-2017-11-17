@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<medikamente>
-    <medikament id="protoa38">
+<medications>
+    <medication id="protoa38">
         <name>ProTo A 38</name>
-        <inhalt>
-            <menge>Hundert</menge>
-            <einheit>ml</einheit>
-        </inhalt>
+        <content>
+            <amount>Hundert</amount>
+            <unit>ml</unit>
+        </content>
         <patent>
-            <erstellt>12. Januar 2000</erstellt>
-            <gueltig-bis>Januar, der 11. im Jahre 2020</gueltig-bis>
+            <created>12. Januar 2000</created>
+            <valid-to>Januar, der 11. im Jahre 2020</valid-to>
         </patent>
-    </medikament>
-    <medikament id="prototyp0815">
+    </medication>
+    <medication id="prototyp0815">
         <name>ProTo Typ 0815</name>
         
-        <inhalt>
-            <menge>20 Tabletten</menge>
-            <einheit/>
-        </inhalt>
+        <content>
+            <amount>20 Tabletten</amount>
+            <unit/>
+        </content>
         
         <patent>
-            <erstellt>2000-01-12</erstellt>
-            <gueltig-bis></gueltig-bis>
+            <created>2000-01-12</created>
+            <valid-to></valid-to>
         </patent>
-    </medikament>
-</medikamente>
+    </medication>
+</medications>

@@ -24,7 +24,7 @@
     <sch:pattern id="multi-fix">
         <sch:title>Simple Beispiele</sch:title>
         
-        <sch:rule context="medikament[@id]">
+        <sch:rule context="medication[@id]">
             <sch:let name="reqId" value="lower-case(replace(name, '\s|&#xA0;', ''))"/>
             <sch:assert test="@id = $reqId" sqf:fix="replaceId">Die ID muss dem Namen entsprechen, nur in Kleinbuchstaben und ohne leerzeichen.</sch:assert>
             
@@ -36,7 +36,7 @@
             </sqf:fix>
         </sch:rule>
         
-        <sch:rule context="medikament/name">
+        <sch:rule context="medication/name">
             <sch:report test="matches(., '\s')" sqf:fix="replaceWS">Whitespace in Produktnamen sollten geschützt sein (&amp;#xA0;)!</sch:report>
             <sqf:fix id="replaceWS">
                 <sqf:description>
@@ -55,7 +55,7 @@
 
         <sch:let name="einheiten" value="('ml', 'mg', 'g', 'cl', 'tbl')"/>
 
-        <sch:rule context="inhalt/menge">
+        <sch:rule context="content/amount">
             <sch:assert test=". castable as xs:double" sqf:fix="menge mengeEinheit">Die Menge muss eine Zahl sein!</sch:assert>
             <sqf:fix id="menge">
                 <sqf:description>
@@ -83,11 +83,11 @@
                     </sqf:description>
                 </sqf:user-entry>
                 <sqf:replace target="menge" node-type="element" select="$mengeNeu"/>
-                <sqf:replace match="../einheit" target="einheit" node-type="element" select="$einheitNeu"/>
+                <sqf:replace match="../unit" target="unit" node-type="element" select="$einheitNeu"/>
             </sqf:fix>
         </sch:rule>
 
-        <sch:rule context="inhalt/einheit">
+        <sch:rule context="content/unit">
             <sch:assert test="normalize-space(.) = $einheiten" sqf:fix="einheit">Die ist keine bekannte Einheit. Bekannte Einheiten sind: <sch:value-of select="string-join($einheiten, ', ')"/></sch:assert>
             <sqf:fix id="einheit">
                 <sqf:description>
@@ -102,16 +102,16 @@
             </sqf:fix>
         </sch:rule>
 
-        <sch:rule context="patent/erstellt | patent/gueltig-bis">
+        <sch:rule context="patent/created | patent/valid-to">
             <sch:assert test=". castable as xs:date" sqf:fix="de-format set-new-date" sqf:default-fix="de-format">Muss ein gültiges Datum vom Typ xs:date sein.</sch:assert>
             <sch:let name="de-format" value="es:date-conversion-de(.)"/>
             
-            <sch:let name="otherDate" value="../(erstellt | gueltig-bis) except ."/>
+            <sch:let name="otherDate" value="../(created | valid-to) except ."/>
             <sch:let name="year" value="xs:dayTimeDuration('P365D')"/>
             <sch:let name="defDuration" value="$year * 20"/>
             <sch:let name="default" value="
                 if ($otherDate castable as xs:date) then
-                (if (self::erstellt) then
+                (if (self::created) then
                 xs:date($otherDate) - $defDuration
                 else
                 xs:date($otherDate) + $defDuration)
@@ -143,7 +143,7 @@
 
     <sch:pattern id="regexOxygen">
         <sch:title>Regex mit Oxygen</sch:title>
-        <sch:rule context="anwendung/p">
+        <sch:rule context="application/p">
             <sch:report test="matches(., '\d+\s(ml|Jahren)')" sqf:fix="insertNBSP">Zwischen der Zahl und einer Einheit immer ein Non-Breaking-Space (&amp;xA0;)!</sch:report>
             <sqf:fix id="insertNBSP">
                 <sqf:description>
@@ -157,7 +157,7 @@
 
     <sch:pattern id="regexEscali">
         <sch:title>Regex mit Escali</sch:title>
-        <sch:rule context="anwendung/p/text()" es:regex="(\d+)\s(ml|Jahren)">
+        <sch:rule context="application/p/text()" es:regex="(\d+)\s(ml|Jahren)">
             <sch:let name="d" value="regex-group(1)"/>
             <sch:report test="true()" sqf:fix="insertNBSP">Zwischen der Zahl und einer Einheit immer ein Non-Breaking-Space (&amp;#xA0;)!</sch:report>
             <sqf:fix id="insertNBSP">
@@ -172,8 +172,8 @@
     <sch:pattern id="copyOfEscali">
         <sch:title>sqf:copy-of</sch:title>
 
-        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::side-effect[not(@level = 'life-threatening')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
             <sqf:fix id="move">
                 <sqf:description>
                     <sqf:title>Schiebe an die erste Stelle</sqf:title>
@@ -192,8 +192,8 @@
     <sch:pattern id="copyOfOxygen">
         <sch:title>sqf:copy-of mit Oxygen</sch:title>
 
-        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@level = 'life-threatening')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
             <sqf:fix id="move">
                 <sqf:description>
                     <sqf:title>Schiebe an die erste Stelle</sqf:title>
@@ -210,7 +210,7 @@
     
     <sch:pattern id="order">
         <sch:title>Reihenfolgen-Bug</sch:title>
-        <sch:rule context="anwendung/p">
+        <sch:rule context="application/p">
             <sch:assert test="normalize-space(.) != ''" sqf:fix="add_spaceBefore add_spaceBefore_orderCorrect">Leere Absätze dürfen nicht verwendet werden um Abstand zu erzeugen.</sch:assert>
             
             <sqf:fix id="add_spaceBefore">
