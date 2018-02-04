@@ -3,19 +3,19 @@
     <medication id="protoa38">
         <name>ProTo A 38</name>
         <content>
-            <amount>Hundert</amount>
+            <amount>Hundred</amount>
             <unit>ml</unit>
         </content>
         <patent>
-            <created>12. Januar 2000</created>
-            <valid-to>Januar, der 11. im Jahre 2020</valid-to>
+            <created>12. January 2000</created>
+            <valid-to>January, the 11th in 2020</valid-to>
         </patent>
     </medication>
     <medication id="prototyp0815">
         <name>ProTo Typ 0815</name>
         
         <content>
-            <amount>20 Tabletten</amount>
+            <amount>20 Tablets</amount>
             <unit/>
         </content>
         
