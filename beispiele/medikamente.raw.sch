@@ -22,16 +22,16 @@
 
     
     <sch:pattern id="multi-fix">
-        <sch:title>Simple Beispiele</sch:title>
+        <sch:title>Simple Example</sch:title>
         
-        <sch:rule context="medikament[@id]">
+        <sch:rule context="medication[@id]">
             <sch:let name="reqId" value="lower-case(replace(name, '\s|&#xA0;', ''))"/>
-            <sch:assert test="@id = $reqId">Die ID muss dem Namen entsprechen, nur in Kleinbuchstaben und ohne leerzeichen.</sch:assert>
+            <sch:assert test="@id = $reqId">The ID must match the name, only in small letters and without spaces.</sch:assert>
             
         </sch:rule>
         
-        <sch:rule context="medikament/name">
-            <sch:report test="matches(., '\s')">Whitespace in Produktnamen sollten geschützt sein (&amp;#xA0;)!</sch:report>
+        <sch:rule context="medication/name">
+            <sch:report test="matches(., '\s')">Whitespaces in product names should be non-breakable (&amp;#xA0;)!</sch:report>
 
         </sch:rule>
         
@@ -40,22 +40,22 @@
 
     <sch:pattern id="types">
 
-        <sch:title>Datentypen</sch:title>
+        <sch:title>Data Types</sch:title>
 
-        <sch:let name="einheiten" value="('ml', 'mg', 'g', 'cl', 'tbl')"/>
+        <sch:let name="units" value="('ml', 'mg', 'g', 'cl', 'tbl')"/>
 
-        <sch:rule context="inhalt/menge">
-            <sch:assert test=". castable as xs:double">Die Menge muss eine Zahl sein!</sch:assert>
+        <sch:rule context="content/amount">
+            <sch:assert test=". castable as xs:double">The amount should be a number!</sch:assert>
             
         </sch:rule>
 
-        <sch:rule context="inhalt/einheit">
-            <sch:assert test="normalize-space(.) = $einheiten">Die ist keine bekannte Einheit. Bekannte Einheiten sind: <sch:value-of select="string-join($einheiten, ', ')"/></sch:assert>
+        <sch:rule context="content/unit">
+            <sch:assert test="normalize-space(.) = $units">This is not a known unit. Known units are: <sch:value-of select="string-join($units, ', ')"/></sch:assert>
             
         </sch:rule>
 
-        <sch:rule context="patent/erstellt | patent/gueltig-bis">
-            <sch:assert test=". castable as xs:date">Muss ein gültiges Datum vom Typ xs:date sein.</sch:assert>
+        <sch:rule context="patent/created | patent/valid-to">
+            <sch:assert test=". castable as xs:date">Shoud be a valid xs:date format.</sch:assert>
             
             
             
@@ -64,18 +64,18 @@
     </sch:pattern>
 
     <sch:pattern id="regexOxygen">
-        <sch:title>Regex mit Oxygen</sch:title>
-        <sch:rule context="anwendung/p">
-            <sch:report test="matches(., '\d+\s(ml|Jahren)')">Zwischen der Zahl und einer Einheit immer ein Non-Breaking-Space (&amp;xA0;)!</sch:report>
+        <sch:title>Regex with Oxygen</sch:title>
+        <sch:rule context="application/p">
+            <sch:report test="matches(., '\d+\s(ml|Jahren)')">Between the number and the unit should be always a non-breaking space (&amp;xA0;)!</sch:report>
             
         </sch:rule>
     </sch:pattern>
 
     <sch:pattern id="regexEscali">
-        <sch:title>Regex mit Escali</sch:title>
-        <sch:rule context="anwendung/p/text()" es:regex="(\d+)\s(ml|Jahren)">
+        <sch:title>Regex with Escali</sch:title>
+        <sch:rule context="application/p/text()" es:regex="(\d+)\s(ml|Jahren)">
             <sch:let name="d" value="regex-group(1)"/>
-            <sch:report test="true()">Zwischen der Zahl und einer Einheit immer ein Non-Breaking-Space (&amp;#xA0;)!</sch:report>
+            <sch:report test="true()">Between the number and the unit should be always a non-breaking space (&amp;xA0;)!</sch:report>
             
         </sch:rule>
     </sch:pattern>
@@ -83,8 +83,8 @@
     <sch:pattern id="copyOfEscali">
         <sch:title>sqf:copy-of</sch:title>
 
-        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]" sqf:fix="move">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::side-effect[not(@level = 'life-threatening')]">Life-threatening side effects should always take place before all other side effects.</sch:report>
             
         </sch:rule>
 
@@ -92,19 +92,19 @@
 
 
     <sch:pattern id="copyOfOxygen">
-        <sch:title>sqf:copy-of mit Oxygen</sch:title>
+        <sch:title>sqf:copy-of with Oxygen</sch:title>
 
-        <sch:rule context="nebenwirkungen/nebenwirkung[@stufe = 'lebensbedrohlich']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@stufe = 'lebensbedrohlich')]">Lebensbedrohliche Nebenwirkungen sollten immer vor allen anderen Nebenwirkungen stehen.</sch:report>
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@level = 'life-threatening')]">Life-threatening side effects should always take place before all other side effects.</sch:report>
             
         </sch:rule>
 
     </sch:pattern>
     
     <sch:pattern id="order">
-        <sch:title>Reihenfolgen-Bug</sch:title>
-        <sch:rule context="anwendung/p">
-            <sch:assert test="normalize-space(.) != ''">Leere Absätze dürfen nicht verwendet werden um Abstand zu erzeugen.</sch:assert>
+        <sch:title>Order Bug</sch:title>
+        <sch:rule context="application/p">
+            <sch:assert test="normalize-space(.) != ''">Empty paragraphs should not be used to create space</sch:assert>
             
         </sch:rule>
     </sch:pattern>
