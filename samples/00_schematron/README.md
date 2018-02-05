@@ -1,4 +1,5 @@
 |  | [Up](../README.md) | [Next](../01_multi-fix/README.md) |
+|--|--|--|
 
 # Introdcution Example
 
