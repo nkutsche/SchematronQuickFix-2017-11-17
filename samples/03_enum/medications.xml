@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../medications.rnc" type="application/relax-ng-compact-syntax"?>
 <medications>
     <medication id="prototyp0815">
         <name>ProTo Typ 0815</name>

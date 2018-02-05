@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../medications.rnc" type="application/relax-ng-compact-syntax"?>
 <medications>
     <medication id="Prototyp">
         <name>ProTo Typ 0815</name>
-
+        
+        <content>
+            <amount>Hundred</amount>
+            <unit>ml</unit>
+        </content>
+        
         <side-effects>
             <side-effect level="innocuous">ProTo&#xA0;Typ&#xA0;0815 may cause mild headaches.</side-effect>
             <side-effect level="life-threatening">Do not take ProTo&#xA0;Type&#xA0;0815 at the same time as antibiotics! May cause life-threatening nausea.</side-effect>
         </side-effects>
 
-
+        
+        
         <application>
             <p>Take 30 ml of ProTo&#xA0;Typ&#xA0;0815 twice daily orally.</p>
             <p/>
@@ -16,6 +23,10 @@
             <p>Contact your doctor or pharmacist for further information.</p>
         </application>
 
-
+        <patent>
+            <created>12. January 2000</created>
+            <valid-to>January, the 11th in 2020</valid-to>
+        </patent>
+        
     </medication>
 </medications>
