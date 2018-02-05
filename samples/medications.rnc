@@ -1,0 +1,37 @@
+datatypes xs = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+start = medications
+
+medications = element medications {medication+}
+
+medication = element medication {id, name, content?, side-effects?, application?, patent?}
+
+name = element name {xs:string}
+
+content = element content {amount, unit}
+
+amount = element amount {xs:double}
+
+unit = element unit {"ml" | "mg" | "g" | "cl" | "tbl"}
+
+side-effects = element side-effects {side-effect+}
+
+side-effect = element side-effect {level, xs:string}
+
+application = element application {p*}
+
+p = element p {(text | q)*}
+
+q = element q {text}
+
+patent = element patent {created, valid-to}
+
+created = element created {xs:date}
+
+valid-to = element valid-to {xs:date}
+
+# attributes
+
+id = attribute id {xs:ID}
+
+level = attribute level {"innocuous" | "life-threatening"}
