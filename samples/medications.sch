@@ -144,27 +144,33 @@
     <sch:pattern id="regexOxygen">
         <sch:title>Regex with Oxygen</sch:title>
         <sch:rule context="application/p">
-            <sch:report test="matches(., '\d+\s(ml|Jahren)')" sqf:fix="insertNBSP">Between the number and the unit should be always a non-breaking space (&amp;xA0;)!</sch:report>
+            <sch:report test="matches(., '\d+\s(ml|years)')" sqf:fix="insertNBSP">Between the number and the unit should be always a non-breaking space (&amp;xA0;)!</sch:report>
             <sqf:fix id="insertNBSP">
                 <sqf:description>
                     <sqf:title>Replaces the space by a non-breaking space</sqf:title>
                 </sqf:description>
                 <sqf:stringReplace match="text()" regex="\sml" select="'&#xA0;ml'"/>
-                <sqf:stringReplace match="text()" regex="\sJahren" select="'&#xA0;Jahren'"/>
+                <sqf:stringReplace match="text()" regex="\syears" select="'&#xA0;years'"/>
             </sqf:fix>
         </sch:rule>
     </sch:pattern>
 
     <sch:pattern id="regexEscali">
         <sch:title>Regex with Escali</sch:title>
-        <sch:rule context="application/p/text()" es:regex="(\d+)\s(ml|Jahren)">
+        <sch:rule context="application/p/text()" es:regex="(\d+)\s(ml|years)">
             <sch:let name="d" value="regex-group(1)"/>
-            <sch:report test="true()" sqf:fix="insertNBSP">Between the number and the unit should be always a non-breaking space (&amp;xA0;)!</sch:report>
+            <sch:report test="true()" sqf:fix="insertNBSP wrap">Between the number and the unit should be always a non-breaking space (&amp;xA0;)!</sch:report>
             <sqf:fix id="insertNBSP">
                 <sqf:description>
                     <sqf:title>Replaces the space by a non-breaking space</sqf:title>
                 </sqf:description>
-                <sqf:replace select="replace($es:match, '(\d+)\s(ml|Jahren)', '$1&#xA0;$2')"/>
+                <sqf:replace select="replace($es:match, '(\d+)\s(ml|years)', '$1&#xA0;$2')"/>
+            </sqf:fix>
+            <sqf:fix id="wrap">
+                <sqf:description>
+                    <sqf:title>Wrap in a q element</sqf:title>
+                </sqf:description>
+                <sqf:replace select="$es:match" target="q" node-type="element"/>
             </sqf:fix>
         </sch:rule>
     </sch:pattern>
