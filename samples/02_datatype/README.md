@@ -1,4 +1,5 @@
 | [Back](../01_multi-fix/README.md) | [Up](../README.md) | [Next](../03_enum/README.md) |
+|--|--|--|
 
 # Data Type Support 
 

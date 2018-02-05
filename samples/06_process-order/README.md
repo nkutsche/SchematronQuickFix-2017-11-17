@@ -1,4 +1,5 @@
 | [Back](../05_microtypo/README.md) | [Up](../README.md) |  |
+|--|--|--|
 
 # Process Order of The Activity Elements
 
