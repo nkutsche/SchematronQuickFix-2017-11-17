@@ -140,7 +140,46 @@
         </sch:rule>
 
     </sch:pattern>
-
+    
+    <sch:pattern id="copyOfEscali">
+        <sch:title>sqf:copy-of</sch:title>
+        
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::side-effect[not(@level = 'life-threatening')]" sqf:fix="move">Life-threatening side effects should always take place before all other side effects.</sch:report>
+            <sqf:fix id="move">
+                <sqf:description>
+                    <sqf:title>Move it on the first place</sqf:title>
+                </sqf:description>
+                <sch:let name="current" value="."/>
+                <sqf:add match=".." position="first-child">
+                    <sqf:copy-of select="$current" unparsed-mode="true"/>
+                </sqf:add>
+                <sqf:delete/>
+            </sqf:fix>
+        </sch:rule>
+        
+    </sch:pattern>
+    
+    
+    <sch:pattern id="copyOfOxygen">
+        <sch:title>sqf:copy-of with Oxygen</sch:title>
+        
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@level = 'life-threatening')]" sqf:fix="move">Life-threatening side effects should always take place before all other side effects.</sch:report>
+            <sqf:fix id="move">
+                <sqf:description>
+                    <sqf:title>Move it on the first place</sqf:title>
+                </sqf:description>
+                <sch:let name="current" value="."/>
+                <sqf:add match=".." position="first-child">
+                    <xsl:copy-of select="$current"/>
+                </sqf:add>
+                <sqf:delete/>
+            </sqf:fix>
+        </sch:rule>
+        
+    </sch:pattern>
+    
     <sch:pattern id="regexOxygen">
         <sch:title>Regex with Oxygen</sch:title>
         <sch:rule context="application/p">
@@ -175,44 +214,6 @@
         </sch:rule>
     </sch:pattern>
 
-    <sch:pattern id="copyOfEscali">
-        <sch:title>sqf:copy-of</sch:title>
-
-        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
-            <sch:report test="preceding-sibling::side-effect[not(@level = 'life-threatening')]" sqf:fix="move">Life-threatening side effects should always take place before all other side effects.</sch:report>
-            <sqf:fix id="move">
-                <sqf:description>
-                    <sqf:title>Move it on the first place</sqf:title>
-                </sqf:description>
-                <sch:let name="current" value="."/>
-                <sqf:add match=".." position="first-child">
-                    <sqf:copy-of select="$current" unparsed-mode="true"/>
-                </sqf:add>
-                <sqf:delete/>
-            </sqf:fix>
-        </sch:rule>
-
-    </sch:pattern>
-
-
-    <sch:pattern id="copyOfOxygen">
-        <sch:title>sqf:copy-of with Oxygen</sch:title>
-
-        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@level = 'life-threatening')]" sqf:fix="move">Life-threatening side effects should always take place before all other side effects.</sch:report>
-            <sqf:fix id="move">
-                <sqf:description>
-                    <sqf:title>Move it on the first place</sqf:title>
-                </sqf:description>
-                <sch:let name="current" value="."/>
-                <sqf:add match=".." position="first-child">
-                    <xsl:copy-of select="$current"/>
-                </sqf:add>
-                <sqf:delete/>
-            </sqf:fix>
-        </sch:rule>
-
-    </sch:pattern>
     
     <sch:pattern id="order">
         <sch:title>Order Bug</sch:title>

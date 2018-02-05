@@ -63,6 +63,27 @@
 
     </sch:pattern>
 
+    <sch:pattern id="copyOfEscali">
+        <sch:title>sqf:copy-of</sch:title>
+        
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::side-effect[not(@level = 'life-threatening')]">Life-threatening side effects should always take place before all other side effects.</sch:report>
+            
+        </sch:rule>
+        
+    </sch:pattern>
+    
+    
+    <sch:pattern id="copyOfOxygen">
+        <sch:title>sqf:copy-of with Oxygen</sch:title>
+        
+        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
+            <sch:report test="preceding-sibling::nebenwirkung[not(@level = 'life-threatening')]">Life-threatening side effects should always take place before all other side effects.</sch:report>
+            
+        </sch:rule>
+        
+    </sch:pattern>
+
     <sch:pattern id="regexOxygen">
         <sch:title>Regex with Oxygen</sch:title>
         <sch:rule context="application/p">
@@ -80,27 +101,6 @@
         </sch:rule>
     </sch:pattern>
 
-    <sch:pattern id="copyOfEscali">
-        <sch:title>sqf:copy-of</sch:title>
-
-        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
-            <sch:report test="preceding-sibling::side-effect[not(@level = 'life-threatening')]">Life-threatening side effects should always take place before all other side effects.</sch:report>
-            
-        </sch:rule>
-
-    </sch:pattern>
-
-
-    <sch:pattern id="copyOfOxygen">
-        <sch:title>sqf:copy-of with Oxygen</sch:title>
-
-        <sch:rule context="side-effects/side-effect[@level = 'life-threatening']">
-            <sch:report test="preceding-sibling::nebenwirkung[not(@level = 'life-threatening')]">Life-threatening side effects should always take place before all other side effects.</sch:report>
-            
-        </sch:rule>
-
-    </sch:pattern>
-    
     <sch:pattern id="order">
         <sch:title>Order Bug</sch:title>
         <sch:rule context="application/p">
