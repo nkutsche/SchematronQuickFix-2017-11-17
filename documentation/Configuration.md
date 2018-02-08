@@ -1,6 +1,6 @@
 # Plugin Configuration
 
-The plugin will be configured by the Escali Plugin Options menu. It can be reached by the *Options* button in the toolbar of the *Main View*.
+The plugin will be configured by the Escali Plugin Options menu. It can be reached by the *Options* button in the toolbar of the [Main View](views/Main.md).
 
 ![img/configuration.png](img/configuration.png "Escali Plugin Options menu")
 

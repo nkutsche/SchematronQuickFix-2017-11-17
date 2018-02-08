@@ -1,5 +1,7 @@
 # Overview
 
+To install the Escali Oxygen Plugin, please follow the instructions in the [installation guide](Installation.md).
+
 The Escali Oxygen Plugin provides three views:
 
 - Escali Schematrin (main view) [read more](views/Main.md)
