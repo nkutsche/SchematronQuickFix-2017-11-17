@@ -6,6 +6,10 @@ This project contains a small documentation, slides and sample files for the
 The slides and the sample files are based on a presentation I gave (in German) at the
 [Markupforum 2017](http://www.markupforum.de/programm.html#v7) on November 17, 2017 and more detailed at the XUGS meeting on November 29, 2017. 
 
+## Escali Plugin Documentation
+
+The [documentation folder](documentation/README.md) contains a small documentation of the Escali Plugin. 
+
 ## Project content
 
 The slides are available in the formats [PDF](SQF-Escali.pdf) and [PowerPoint](SQF-Escali.pptx).
