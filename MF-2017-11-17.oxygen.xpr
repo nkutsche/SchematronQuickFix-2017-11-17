@@ -10,6 +10,21 @@
                         <scenarioAssociation-array>
                             <scenarioAssociation>
                                 <field name="url">
+                                    <String>samples/05_microtypo/medications.xml</String>
+                                </field>
+                                <field name="scenarioIds">
+                                    <list>
+                                        <String>medikamente</String>
+                                    </list>
+                                </field>
+                                <field name="scenarioTypes">
+                                    <list>
+                                        <String>Validation_scenario</String>
+                                    </list>
+                                </field>
+                            </scenarioAssociation>
+                            <scenarioAssociation>
+                                <field name="url">
                                     <String>beispiele/05_microtypo/medikamente.xml</String>
                                 </field>
                                 <field name="scenarioIds">
@@ -205,7 +220,7 @@
                                                         <Integer>7</Integer>
                                                     </field>
                                                     <field name="uri">
-                                                        <String>${pdu}/beispiele/medikamente.sch</String>
+                                                        <String>${pdu}/samples/medications.sch</String>
                                                     </field>
                                                 </validationUnitSchema>
                                             </field>
