@@ -1,0 +1,37 @@
+datatypes xs = "http://www.w3.org/2001/XMLSchema-datatypes"
+
+start = medikamente
+
+medikamente = element medikamente {medikament+}
+
+medikament = element medikament {id, name, inhalt?, nebenwirkungen?, anwendung?, patent?}
+
+name = element name {xs:string}
+
+inhalt = element inhalt {menge, einheit}
+
+menge = element menge {xs:double}
+
+einheit = element einheit {"ml" | "mg" | "g" | "cl" | "tbl"}
+
+nebenwirkungen = element nebenwirkungen {nebenwirkung+}
+
+nebenwirkung = element nebenwirkung {stufe, xs:string}
+
+anwendung = element anwendung {p*}
+
+p = element p {(text | q)*}
+
+q = element q {text}
+
+patent = element patent {erstellt, gueltig-bis}
+
+erstellt = element erstellt {xs:date}
+
+gueltig-bis = element gueltig-bis {xs:date}
+
+# attributes
+
+id = attribute id {xs:ID}
+
+stufe = attribute stufe {"ungefaehrlich" | "lebensbedrohlich"}
