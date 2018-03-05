@@ -200,12 +200,18 @@
     <sch:pattern id="regexEscali">
         <sch:title>Regex mit Escali</sch:title>
         <sch:rule context="anwendung/p/text()" es:regex="(\d+)\s(ml|Jahren)">
-            <sch:report test="true()" sqf:fix="insertNBSP">Zwischen der Zahl und einer Einheit immer ein Non-Breaking-Space (&amp;#xA0;)!</sch:report>
+            <sch:report test="true()" sqf:fix="insertNBSP wrap">Zwischen der Zahl und einer Einheit immer ein Non-Breaking-Space (&amp;#xA0;)!</sch:report>
             <sqf:fix id="insertNBSP">
                 <sqf:description>
                     <sqf:title>Ersetze das Leerzeichen durch einen Non-Breaking-Space</sqf:title>
                 </sqf:description>
                 <sqf:replace select="replace($es:match, '(\d+)\s(ml|Jahren)', '$1&#xA0;$2')"/>
+            </sqf:fix>
+            <sqf:fix id="wrap">
+                <sqf:description>
+                    <sqf:title>Packe die Mengenangabe in ein q element</sqf:title>
+                </sqf:description>
+                <sqf:replace select="$es:match" target="q" node-type="element"/>
             </sqf:fix>
         </sch:rule>
     </sch:pattern>
