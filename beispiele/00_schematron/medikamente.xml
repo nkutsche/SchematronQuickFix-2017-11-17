@@ -3,7 +3,10 @@
 <medikamente>
     <medikament id="Prototyp">
         <name>ProTo Typ 0815</name>
-        
+        <inhalt>
+            <menge>Zwanzig</menge>
+            <einheit>Tabletten</einheit>
+        </inhalt>
         <nebenwirkungen>
             <nebenwirkung stufe="ungefaehrlich">ProTo&#xA0;Typ&#xA0;0815 kann zu leichten Koptschmerzen führen.</nebenwirkung>
             <nebenwirkung stufe="lebensbedrohlich">ProTo&#xA0;Typ&#xA0;0815 nicht gleichzeitig mit Antibiotika einnehmen! Kann zu lebensbedrohlichem Brechreiz führen.</nebenwirkung>
