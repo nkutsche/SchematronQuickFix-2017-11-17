@@ -14,6 +14,10 @@
                         <String>Monospaced,0,16</String>
                     </entry>
                     <entry>
+                        <String>enable.project.master.files.support</String>
+                        <Boolean>true</Boolean>
+                    </entry>
+                    <entry>
                         <String>font.for.author.v12</String>
                         <String>Serif,0,15</String>
                     </entry>
@@ -46,6 +50,9 @@
         </options>
     </meta>
     <projectTree name="MF-2017-11-17.xpr">
+        <folder masterFiles="true" name="Master Files">
+            <file name="beispiele/medikamente.sch"/>
+        </folder>
         <folder name="Escali-junit-tests">
             <folder path="../../../Java2/escali-main-package/escali/src/test/resources/sch/escali-ext-tests/"/>
             <folder path="../../../Java2/escali-main-package/escali/src/test/resources/sch/gui-tests/"/>
